@@ -20,7 +20,7 @@ const links = [
   },
   {
     label: "Curriculum",
-    href: "#",
+    href: "https://drive.google.com/file/d/1m7FK0aPwyvWDD4UT5KBGykOP0EvpUjK0/view?usp=sharing",
     value: "🔗 Descargá mi CV",
     icon: FileIcon,
     external: true,
