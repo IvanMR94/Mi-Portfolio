@@ -38,7 +38,7 @@ export default function AboutSection() {
         <p>
           ¡Hola! Soy{" "}
           <span className="font-medium text-zinc-100">Ivan Moreno</span>,
-          Desarrollador Full Stack en formación y estudiante avanzado de la Tecnicatura
+          Desarrollador Full Stack y estudiante avanzado de la Tecnicatura
           Superior en Desarrollo Web y Aplicaciones Digitales. Me apasiona la
           tecnología y la creación de soluciones digitales robustas, combinando
           el desarrollo Frontend y Backend con una sólida mirada integral hacia
