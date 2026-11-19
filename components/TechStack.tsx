@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Reveal from "./Reveal";
 import {
   siAngular,
   siCypress,
@@ -79,18 +80,17 @@ export default function TechStack() {
     <div>
       <h3 className="text-lg font-bold text-zinc-100">Tecnologías</h3>
       <div className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-5">
-        {technologies.map((tech) => (
-          <div
-            key={tech.label}
-            className="group flex flex-col items-center gap-2 rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-2 py-4 transition-all duration-300 hover:border-blue-500/40 hover:bg-zinc-900/70 hover:shadow-[0_0_26px_-8px_rgba(59,130,235,0.55)]"
-          >
-            <span className="text-zinc-400 transition-colors duration-300 group-hover:text-blue-400">
-              {tech.icon}
-            </span>
-            <span className="text-center text-[11px] text-zinc-500 transition-colors duration-300 group-hover:text-zinc-200">
-              {tech.label}
-            </span>
-          </div>
+        {technologies.map((tech, index) => (
+          <Reveal key={tech.label} delay={index * 0.05}>
+            <div className="group flex h-full flex-col items-center gap-2 rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-2 py-4 transition-all duration-300 hover:border-blue-500/40 hover:bg-zinc-900/70 hover:shadow-[0_0_26px_-8px_rgba(59,130,235,0.55)]">
+              <span className="text-zinc-400 transition-colors duration-300 group-hover:text-blue-400">
+                {tech.icon}
+              </span>
+              <span className="text-center text-[11px] text-zinc-500 transition-colors duration-300 group-hover:text-zinc-200">
+                {tech.label}
+              </span>
+            </div>
+          </Reveal>
         ))}
       </div>
     </div>

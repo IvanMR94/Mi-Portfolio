@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import Reveal from "./Reveal";
 import { ArrowLeftIcon, ArrowRightIcon } from "./icons";
 
 type Testimonial = {
@@ -36,6 +37,13 @@ export default function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
   const total = testimonials.length;
 
+  useEffect(() => {
+    testimonials.forEach((t) => {
+      const img = new window.Image();
+      img.src = t.image;
+    });
+  }, []);
+
   const prev = () => setCurrent((c) => (c - 1 + total) % total);
   const next = () => setCurrent((c) => (c + 1) % total);
 
@@ -43,15 +51,15 @@ export default function TestimonialsSection() {
 
   return (
     <div className="space-y-4">
-      <div>
+      <Reveal>
         <h3 className="text-lg font-semibold tracking-tight text-zinc-200 sm:text-xl">
           Lo que dicen mis compañeros
         </h3>
         <div className="mt-2 h-0.5 w-8 rounded-full bg-blue-500/70" />
-      </div>
+      </Reveal>
 
       <div className="mx-auto max-w-xl">
-        <div className="relative">
+        <Reveal delay={0.1} className="relative">
           <button
             type="button"
             onClick={prev}
@@ -70,23 +78,25 @@ export default function TestimonialsSection() {
             <ArrowRightIcon className="h-3.5 w-3.5" />
           </button>
 
-          <div className="rounded-xl border border-white/[0.06] bg-[#121216] px-5 py-5 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_55px_-20px_rgba(59,130,235,0.28),0_0_130px_-50px_rgba(37,99,235,0.16)] sm:px-8 sm:py-6">
-            <div className="mx-auto h-12 w-12 overflow-hidden rounded-full border-2 border-blue-500/40">
-              <Image
-                src={t.image}
-                alt={t.name}
-                width={48}
-                height={48}
-                className="h-full w-full object-cover"
-              />
+          <div className="min-h-[240px] rounded-xl border border-white/[0.06] bg-[#121216] px-5 py-5 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_55px_-20px_rgba(59,130,235,0.28),0_0_130px_-50px_rgba(37,99,235,0.16)] sm:px-8 sm:py-6">
+            <div key={t.name} className="testimonial-enter">
+              <div className="mx-auto h-12 w-12 overflow-hidden rounded-full border-2 border-blue-500/40">
+                <Image
+                  src={t.image}
+                  alt={t.name}
+                  width={48}
+                  height={48}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="mt-3 text-sm font-semibold text-zinc-100">{t.name}</p>
+              <p className="mt-0.5 text-xs text-blue-400">{t.role}</p>
+              <p className="mx-auto mt-3 max-w-md text-xs leading-5 text-zinc-400">
+                {t.text}
+              </p>
             </div>
-            <p className="mt-3 text-sm font-semibold text-zinc-100">{t.name}</p>
-            <p className="mt-0.5 text-xs text-blue-400">{t.role}</p>
-            <p className="mx-auto mt-3 max-w-md text-xs leading-5 text-zinc-400">
-              {t.text}
-            </p>
           </div>
-        </div>
+        </Reveal>
 
         <div className="mt-3 flex justify-center gap-1.5">
           {testimonials.map((_, i) => (

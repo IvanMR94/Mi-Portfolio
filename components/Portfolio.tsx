@@ -57,9 +57,11 @@ export default function Portfolio() {
           <NavBar active={active} onChange={handleTabChange} />
 
           <div className="px-5 pb-10 pt-5 sm:px-9 sm:pb-12 sm:pt-7">
-            {active === "about" && <AboutSection />}
-            {active === "resume" && <ResumeSection />}
-            {active === "portfolio" && <PortfolioSection />}
+            <div key={active} className="section-enter">
+              {active === "about" && <AboutSection />}
+              {active === "resume" && <ResumeSection />}
+              {active === "portfolio" && <PortfolioSection />}
+            </div>
 
             <footer
               suppressHydrationWarning

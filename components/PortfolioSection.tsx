@@ -1,5 +1,6 @@
-import Image from "next/image";
+import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
+import SmartImage from "./SmartImage";
 import TestimonialsSection from "./TestimonialsSection";
 import { ExternalLinkIcon, EyeIcon, GithubIcon } from "./icons";
 
@@ -52,7 +53,7 @@ function ProjectCard({ project }: { project: Project }) {
       >
         <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-zinc-900 via-zinc-950 to-blue-950">
           {project.image ? (
-            <Image
+            <SmartImage
               src={project.image}
               alt={project.title}
               fill
@@ -107,8 +108,10 @@ export default function PortfolioSection() {
       <p className="text-sm text-zinc-400">🚀 ¿Te gustan los proyectos?</p>
 
       <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+        {projects.map((project, index) => (
+          <Reveal key={project.title} delay={index * 0.12}>
+            <ProjectCard project={project} />
+          </Reveal>
         ))}
       </div>
 

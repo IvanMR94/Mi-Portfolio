@@ -1,3 +1,4 @@
+import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 import TechStack from "./TechStack";
 import { CheckIcon, CodeIcon, GitBranchIcon, ServerIcon } from "./icons";
@@ -34,7 +35,7 @@ export default function AboutSection() {
     <div className="space-y-8">
       <SectionHeader title="Sobre Mí" />
 
-      <div className="space-y-4 text-sm leading-7 text-zinc-400 sm:text-[15px] sm:leading-8">
+      <Reveal className="space-y-4 text-sm leading-7 text-zinc-400 sm:text-[15px] sm:leading-8">
         <p>
           ¡Hola! Soy{" "}
           <span className="font-medium text-zinc-100">Ivan Moreno</span>,
@@ -61,30 +62,29 @@ export default function AboutSection() {
           Si querés conocer más sobre lo que hago, ¡te invito a explorar mis
           proyectos!
         </p>
-      </div>
+      </Reveal>
 
       <div className="pt-2">
         <h3 className="text-lg font-bold text-zinc-100">Qué Hago?</h3>
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
-          {whatIDo.map((item) => {
+          {whatIDo.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div
-                key={item.title}
-                className="glow-card rounded-2xl border border-zinc-800/80 bg-[#121216] transition-colors hover:border-blue-500/40"
-              >
-                <div className="glow-card-content flex flex-col items-center gap-4 rounded-xl bg-[#121216] p-6 text-center lg:flex-row lg:items-start lg:gap-5 lg:text-left">
-                  <Icon className="h-8 w-8 shrink-0 text-blue-400" />
-                  <div>
-                    <h4 className="text-base font-bold text-zinc-50">
-                      {item.title}
-                    </h4>
-                    <p className="mt-2 text-sm leading-6 text-zinc-400">
-                      {item.description}
-                    </p>
+              <Reveal key={item.title} delay={index * 0.08}>
+                <div className="glow-card rounded-2xl border border-zinc-800/80 bg-[#121216] transition-colors hover:border-blue-500/40">
+                  <div className="glow-card-content flex flex-col items-center gap-4 rounded-xl bg-[#121216] p-6 text-center lg:flex-row lg:items-start lg:gap-5 lg:text-left">
+                    <Icon className="h-8 w-8 shrink-0 text-blue-400" />
+                    <div>
+                      <h4 className="text-base font-bold text-zinc-50">
+                        {item.title}
+                      </h4>
+                      <p className="mt-2 text-sm leading-6 text-zinc-400">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

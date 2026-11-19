@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import {
   ChevronDownIcon,
   FileIcon,
@@ -9,6 +8,7 @@ import {
   LinkedinIcon,
   MailIcon,
 } from "./icons";
+import SmartImage from "./SmartImage";
 
 const links = [
   {
@@ -65,7 +65,7 @@ export default function ProfileCard() {
     <div className="relative">
       <div className="flex items-center gap-4 lg:flex-col lg:items-center lg:text-center">
         <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl ring-1 ring-blue-400/40 lg:h-40 lg:w-40 lg:rounded-2xl">
-          <Image
+          <SmartImage
             src="/yo.jpg"
             alt="Ivan Moreno"
             fill
