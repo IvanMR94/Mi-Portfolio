@@ -2,58 +2,114 @@ import type { ReactNode } from "react";
 import SectionHeader from "./SectionHeader";
 import { AwardIcon, BriefcaseIcon, GraduationCapIcon } from "./icons";
 
-const experiences = [
+type ExperienceRole = {
+  period: string;
+  role: string;
+  bullets: string[];
+  tags?: string[];
+};
+
+type Experience = {
+  company: string;
+  period: string;
+  roles: ExperienceRole[];
+};
+
+const experiences: Experience[] = [
   {
     company: "JGO Technology",
     period: "Ago. 2026 — Actualidad · Remoto",
-    role: "Desarrollador Web",
-    bullets: [
-      "Participación en proyectos de desarrollo web dentro de un entorno profesional, aplicando buenas prácticas de desarrollo, trabajo colaborativo y metodologías ágiles.",
-      "Desarrollo y mantenimiento de interfaces web, integración de tecnologías frontend y resolución de requerimientos orientados a la experiencia de usuario.",
-    ],
-    tags: [
-      "WordPress",
-      "Elementor",
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "SEO",
-      "Accesibilidad web",
+    roles: [
+      {
+        period: "Ago. 2026 — Actualidad · Remoto",
+        role: "Desarrollador Web",
+        bullets: [
+          "Participación en proyectos de desarrollo web dentro de un entorno profesional, aplicando buenas prácticas de desarrollo, trabajo colaborativo y metodologías ágiles.",
+          "Desarrollo y mantenimiento de interfaces web, integración de tecnologías frontend y resolución de requerimientos orientados a la experiencia de usuario.",
+        ],
+        tags: [
+          "WordPress",
+          "Elementor",
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "SEO",
+          "Accesibilidad web",
+        ],
+      },
     ],
   },
   {
     company: "Policía de la Provincia de Córdoba",
     period: "Mar. 2023 — Actualidad · Presencial",
-    role: "Personal Civil",
-    bullets: [
-      "Experiencia en el Centro de Comunicaciones y Videovigilancia, realizando monitoreo en tiempo real, gestión de incidentes y análisis de información mediante sistemas tecnológicos de seguridad.",
-      "Desarrollo de habilidades transferibles al ámbito IT: resolución de problemas, análisis de información, atención al detalle, trabajo bajo presión, comunicación efectiva y adaptación a nuevas tecnologías.",
+    roles: [
+      {
+        period: "Mar. 2023 — Actualidad · Presencial",
+        role: "Personal Civil",
+        bullets: [
+          "Experiencia en el Centro de Comunicaciones y Videovigilancia, realizando monitoreo en tiempo real, gestión de incidentes y análisis de información mediante sistemas tecnológicos de seguridad.",
+          "Desarrollo de habilidades transferibles al ámbito IT: resolución de problemas, análisis de información, atención al detalle, trabajo bajo presión, comunicación efectiva y adaptación a nuevas tecnologías.",
+        ],
+      },
     ],
   },
   {
     company: "No Country",
-    period: "Jul. 2026 · Remoto",
-    role: "Backend Developer",
-    bullets: [
-      "Participación en un proyecto de desarrollo colaborativo como Backend Developer, trabajando en la evolución de PhysaFlow, una aplicación web orientada al análisis de capacidad en centros de datos de IA.",
-      "Desarrollo e integración de funcionalidades de IA conversacional, implementando lógica de contexto y búsqueda por relevancia (RAG), procesamiento de respuestas en streaming e integración con APIs.",
-      "Participación en pruebas, corrección de bugs, revisiones técnicas y trabajo colaborativo mediante Git y GitHub.",
+    period: "Jul. 2026 — Nov. 2026 · Remoto",
+    roles: [
+      {
+        period: "Jul. 2026 · Remoto",
+        role: "Backend Developer",
+        bullets: [
+          "Participación en un proyecto de desarrollo colaborativo como Backend Developer, trabajando en la evolución de PhysaFlow, una aplicación web orientada al análisis de capacidad en centros de datos de IA.",
+          "Desarrollo e integración de funcionalidades de IA conversacional, implementando lógica de contexto y búsqueda por relevancia (RAG), procesamiento de respuestas en streaming e integración con APIs.",
+          "Participación en pruebas, corrección de bugs, revisiones técnicas y trabajo colaborativo mediante Git y GitHub.",
+        ],
+        tags: ["Next.js", "TypeScript", "Vercel AI SDK", "Groq", "Git", "GitHub"],
+      },
+      {
+        period: "Oct. 2026 — Nov. 2026 · Remoto",
+        role: "Full Stack Developer",
+        bullets: [
+          "Desarrollé e integré API REST utilizando NestJS.",
+          "Modelé datos y gestioné la persistencia con Prisma ORM y PostgreSQL.",
+          "Implementé mecanismos de autenticación, autorización y roles de usuario.",
+          "Desarrollé reglas de negocio para reservas, disponibilidad, cupos y gestión de viajes.",
+          "Desarrollé interfaces y dashboards utilizando React y TypeScript.",
+          "Integré funcionalidades de gestión, reseñas y comunicación mediante WhatsApp.",
+          "Implementé y mantuve más de 230 pruebas automatizadas con Vitest.",
+          "Participé en procesos de CI/CD y despliegues en Vercel y Render.",
+          "Elaboré documentación técnica y realicé seguimiento del backlog.",
+        ],
+        tags: [
+          "NestJS",
+          "Prisma",
+          "PostgreSQL",
+          "React",
+          "TypeScript",
+          "Vitest",
+        ],
+      },
     ],
-    tags: ["Next.js", "TypeScript", "Vercel AI SDK", "Groq", "Git", "GitHub"],
   },
   {
     company: "Santex",
     period: "May. 2025 — Jul. 2025 · Remoto",
-    role: "QA Manual",
-    bullets: [
-      "Participación en un proyecto real de QA y Testing para una billetera virtual llamada TALER, realizando pruebas funcionales, exploratorias, de usabilidad y validaciones de seguridad.",
-      "Diseño y ejecución de casos de prueba, documentación de resultados, reporte y seguimiento de bugs, además de trabajo colaborativo bajo metodología Scrum, dailys y presentaciones técnicas.",
-    ],
-    tags: [
-      "Testing funcional",
-      "Trello",
-      "Scrum",
-      "Documentación de bugs",
+    roles: [
+      {
+        period: "May. 2025 — Jul. 2025 · Remoto",
+        role: "QA Manual",
+        bullets: [
+          "Participación en un proyecto real de QA y Testing para una billetera virtual llamada TALER, realizando pruebas funcionales, exploratorias, de usabilidad y validaciones de seguridad.",
+          "Diseño y ejecución de casos de prueba, documentación de resultados, reporte y seguimiento de bugs, además de trabajo colaborativo bajo metodología Scrum, dailys y presentaciones técnicas.",
+        ],
+        tags: [
+          "Testing funcional",
+          "Trello",
+          "Scrum",
+          "Documentación de bugs",
+        ],
+      },
     ],
   },
 ];
@@ -124,24 +180,37 @@ export default function ResumeSection() {
               <p className="mt-1 text-sm font-medium text-blue-500">
                 {exp.period}
               </p>
-              <p className="mt-1 text-sm text-zinc-300">{exp.role}</p>
-              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-6 text-zinc-400 marker:text-blue-500">
-                {exp.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
+              <div className="mt-3 space-y-5">
+                {exp.roles.map((r) => (
+                  <div key={r.role}>
+                    <p className="text-sm text-zinc-300">
+                      {exp.roles.length > 1 && (
+                        <span className="mr-2 inline-block rounded-md border border-zinc-800 bg-zinc-900 px-2 py-0.5 text-xs font-medium text-blue-400">
+                          {r.period}
+                        </span>
+                      )}
+                      {r.role}
+                    </p>
+                    <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-6 text-zinc-400 marker:text-blue-500">
+                      {r.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                    {r.tags && r.tags.length > 0 && (
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {r.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-xs text-zinc-300"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
-              </ul>
-              {exp.tags && exp.tags.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {exp.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-xs text-zinc-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
+              </div>
             </li>
           ))}
         </ol>

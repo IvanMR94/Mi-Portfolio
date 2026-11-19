@@ -24,6 +24,12 @@ const testimonials: Testimonial[] = [
     text: "Iván tiene lo más importante que necesita un profesional: es comprometido, se adapta a cualquier condición y cumple de manera responsable sus tareas. Siempre se mantuvo comunicado, dispuesto a colaborar, y sabe transmitir las ideas y aprender lo que no sabe.",
     image: "/Ariel.jpg",
   },
+  {
+    name: "Yamila Castro",
+    role: "QA Tester | QA Manual Jr.",
+    text: "Tuve la oportunidad de compartir equipo con Iván en el desarrollo de NautiFlow dentro de la simulación de No Country. Destaco su compromiso y predisposición para sacar adelante el desarrollo del proyecto y asumir la presentación final del producto. Un compañero activo y resolutivo ante los plazos ajustados de la entrega.",
+    image: "/Yamila.jpg",
+  },
 ];
 
 export default function TestimonialsSection() {

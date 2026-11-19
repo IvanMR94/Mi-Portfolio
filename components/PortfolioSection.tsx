@@ -3,7 +3,7 @@ import SectionHeader from "./SectionHeader";
 import TestimonialsSection from "./TestimonialsSection";
 import { ExternalLinkIcon, EyeIcon, GithubIcon } from "./icons";
 
-type Category = "Frontend" | "Backend";
+type Category = "Frontend" | "Backend" | "Full Stack";
 
 type Project = {
   title: string;
@@ -27,6 +27,17 @@ const projects: Project[] = [
     repo: "https://github.com/IvanMR94/Physaflow-report",
     monogram: "PF",
     image: "/PhysaFlow.jpg",
+  },
+  {
+    title: "NautiFlow",
+    category: "Full Stack",
+    description:
+      "Sistema de gestión para una agencia de transporte privado de lanchas en el Delta del Tigre: flota, documentación, solicitudes de lancheros, viajes, reservas y reputación en una plataforma. Simulación laboral de NoCountry con roles ADMIN/OWNER, JWT, API REST documentada con Swagger y CI en cada PR.",
+    tags: ["React 19", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "Docker"],
+    deploy: "https://proyecto-nautiflow-nocountry.vercel.app/",
+    repo: "https://github.com/IvanMR94/G10-Latam-Equipo22-NautiFlow",
+    monogram: "NF",
+    image: "/NautiFlow.jpg",
   },
 ];
 
